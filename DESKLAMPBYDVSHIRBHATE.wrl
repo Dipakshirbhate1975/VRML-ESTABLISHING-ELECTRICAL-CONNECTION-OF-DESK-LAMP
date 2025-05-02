@@ -1,0 +1,260 @@
+#VRML V2.0 utf8
+WorldInfo {
+ title "DESKLAMP BY DR DIPAK SHIRBHATE"
+ info ["This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+ "www.mediamachines.com"
+ "This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+ "This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+ "This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+ "This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"
+ "This Web3D Content was created with Vivaty Studio, a Web3D authoring tool"]
+}
+## Vizthumbnail  Thumb_Untitled33_wrl29333461587828431.jpg
+DEF Import_DESK_LAMP_DVS_wrl Group {
+ children [
+  DEF DL NavigationInfo {
+   avatarSize [
+    .25 1.6 .75
+   ]
+   visibilityLimit 0
+   speed 1
+   headlight TRUE
+   type ["WALK"
+   "ANY"]
+  }
+  DEF VP1 Viewpoint {
+   description "Viewpoint1"
+   jump TRUE
+   fieldOfView 0.785
+   position 0 .1 1
+   orientation 0 0 1 0
+  }
+  DEF MAIN Group {
+   children [
+    DEF ENTIRE_ASSEMBLY PlaneSensor {
+    }
+    DEF dad_LAMPGROUP Transform {
+     children [
+      DEF BASE Shape {
+       appearance Appearance {
+        material DEF Rust Material {
+         ambientIntensity 0.200
+         shininess 0.200
+         diffuseColor .69 .47 .46
+        }
+       }
+       geometry DEF GeoCylinder1 Cylinder {
+        height 0.010
+        radius 0.100
+       }
+      }
+      DEF BOTHARM Group {
+       children [
+        DEF MOVE_FIRST_ARM SphereSensor {
+        }
+        DEF Transform10 Transform {
+         translation 0 .15 0
+         rotation 0 0 1 -.7
+         center 0 -.15 0
+         children [
+          DEF ARM_FIRST Shape {
+           appearance Appearance {
+            material USE Rust
+           }
+           geometry DEF GeoCylinder2 Cylinder {
+            height 0.300
+            radius 0.010
+           }
+          }
+          DEF SECONDARM Group {
+           children [
+            DEF MOVE_SECOND_ARM SphereSensor {
+            }
+            DEF Transform6 Transform {
+             translation 0 .3 0
+             rotation 0 0 1 1.9
+             center 0 -.15 0
+             children [
+              USE ARM_FIRST
+              DEF END_PIECE Group {
+               children [
+                DEF MOVE_LAMPSHADE SphereSensor {
+                }
+                DEF Transform11 Transform {
+                 translation 0 .075 0
+                 rotation 0 0 1 -1.25
+                 center 0 .075 0
+                 children [
+                  DEF dad_LAMP_SHADE Transform {
+                   rotation 0 0 1 .05
+                   children [
+                    DEF LAMP_SHADE Shape {
+                     appearance Appearance {
+                      material USE Rust
+                     }
+                     geometry DEF GeoCone1 Cone {
+                      height 0.150
+                      bottomRadius 0.120
+                      bottom FALSE
+                     }
+                    }
+                   ]
+                  }
+                  DEF dad_Group1 Transform {
+                   translation 0 -.05 0
+                   children [
+                    DEF BULB Shape {
+                     appearance Appearance {
+                      material DEF Shiny_White Material {
+                       ambientIntensity 0.200
+                       shininess 0.100
+                       diffuseColor 1 1 1
+                       specularColor 1 1 1
+                      }
+                     }
+                     geometry DEF GeoSphere1 Sphere {
+                      radius 0.050
+                     }
+                    }
+                    DEF CLOCK1 TimeSensor {
+                     cycleInterval 0.500
+                     loop FALSE
+                     startTime -1.000
+                    }
+                    DEF COLORPATH1 ColorInterpolator {
+                     key [
+                     0 1
+                     ]
+                     keyValue [
+                     .4 .4 .4
+                     1 1 0
+                     ]
+                    }
+                    DEF COLORPATH2 ColorInterpolator {
+                     key [
+                     0 1
+                     ]
+                     keyValue [
+                     1 1 0
+                     .4 .4 .4
+                     ]
+                    }
+                    DEF CLOCK2 TimeSensor {
+                     cycleInterval 0.500
+                     loop FALSE
+                     startTime -1.000
+                    }
+                    DEF dad_Light1 Transform {
+                     rotation -1 0 0 .96
+                     children [
+                      DEF Light1 SpotLight {
+                       ambientIntensity 0.800
+                       intensity 1.000
+                       radius 20.000
+                       cutOffAngle 0.785
+                       beamWidth 0.393
+                       attenuation 1 0 0
+                       color 1 1 0
+                       on TRUE
+                      }
+                     ]
+                    }
+                   ]
+                  }
+                 ]
+                }
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+    DEF dad_BUTTON1GROUP Transform {
+     translation -.02 .015 .05
+     children [
+      DEF BUTTON1GROUP Group {
+       children [
+        DEF Cylinder1 Shape {
+         appearance Appearance {
+          material DEF Red Material {
+           ambientIntensity 0.200
+           shininess 0.200
+           diffuseColor 1 0 0
+          }
+         }
+         geometry DEF GeoCylinder3 Cylinder {
+          height 0.030
+          radius 0.010
+         }
+        }
+        DEF TOUCH1 TouchSensor {
+        }
+        DEF CODE1 Script {
+          eventOut SFBool VALUE
+          eventIn SFTime SET_LIGHT
+         url [ "javascript:
+function set_light() {
+ value = true;
+}
+" ]
+        }
+       ]
+      }
+     ]
+    }
+    DEF dad_BUTTON2GROUP Transform {
+     translation .02 .015 .05
+     children [
+      DEF BUTTON2GROUP Group {
+       children [
+        DEF Cylinder2 Shape {
+         appearance Appearance {
+          material DEF Blue Material {
+           ambientIntensity 0.200
+           shininess 0.200
+           diffuseColor 0 0 1
+          }
+         }
+         geometry DEF GeoCylinder4 Cylinder {
+          height 0.030
+          radius 0.010
+         }
+        }
+        DEF TOUCH2 TouchSensor {
+        }
+        DEF CODE2 Script {
+          eventOut SFBool VALUE
+          eventIn SFTime SET_LIGHT
+         url [ "javascript:
+function set_light() {
+ value = false;
+}" ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
+ROUTE TOUCH1.touchTime TO CLOCK1.startTime
+ROUTE TOUCH2.touchTime TO CLOCK2.startTime
+ROUTE ENTIRE_ASSEMBLY.translation_changed TO dad_LAMPGROUP.set_translation
+ROUTE MOVE_FIRST_ARM.rotation_changed TO Transform10.set_rotation
+ROUTE MOVE_SECOND_ARM.rotation_changed TO Transform6.set_rotation
+ROUTE MOVE_LAMPSHADE.rotation_changed TO Transform11.set_rotation
+ROUTE CLOCK1.fraction_changed TO COLORPATH1.set_fraction
+ROUTE COLORPATH1.value_changed TO Shiny_White.set_emissiveColor
+ROUTE CLOCK2.fraction_changed TO COLORPATH2.set_fraction
+ROUTE COLORPATH2.value_changed TO Shiny_White.set_specularColor
+ROUTE TOUCH1.touchTime TO CODE1.SET_LIGHT
+ROUTE CODE1.VALUE TO Light1.set_on
+ROUTE TOUCH2.touchTime TO CODE2.SET_LIGHT
+ROUTE CODE2.VALUE TO Light1.set_on
